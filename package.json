@@ -1,0 +1,12 @@
+{
+  "name": "online-exam-platform",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "description": "Modern JS, Pure CSS, Node.js, Express, MySQL",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
