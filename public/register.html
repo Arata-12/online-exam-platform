@@ -1,1 +1,146 @@
 <!-- Register Page HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ############################## link css icon ############################### -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ############################## link all.Js  ############################### -->
+
+    <title>Register</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <!-- Navigation -->
+        <nav>
+            <label class="logo">Exam<span>Uae</span></label>
+            <ul class="nav-left">
+                <li><a href="index.html#home">HOME</a></li>
+                <li><a href="index.html#features">FEATURES</a></li>
+                <li><a href="index.html#about">ABOUT</a></li>
+                <li class="language">
+                    <a href="#">LANGUAGE</a>
+                    <ul class="long">
+                        <li>
+                            <a href="#"><span>AR</span><img src="images/Arabic.jpeg" alt="Arabic Flag"></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>FR</span><img src="images/Francia.jpeg" alt="French Flag"></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>EN</span><img src="images/English.jpeg" alt="English Flag"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="buttons">
+                <a href="login.html" class="signin">Sign In</a>
+                <a href="Register.html" class="get-started">Get Started</a>
+            </div>
+            <div class="bx bx-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="dropdown_menu ">
+                <li><a href="index.html#home">HOME</a></li>
+                <li><a href="index.html#features">FEATURES</a></li>
+                <li><a href="index.html#about">ABOUT</a></li>
+                <div class="botton">
+                    <a href="login.html" class="signin">Sign In</a>
+                    <a href="Register.html" class="get-started">Get Started</a>
+                </div>
+            </div>
+            
+        </nav>
+        <!-- navigation end-->
+        <!-- Main Section -->
+        <div class="container_register">
+            <div class="order_register">
+                <div class="photo_register">
+                    <img src="images/download (7).gif" alt="Students using online exam register">
+                </div>
+                    <form id="registerForm">
+                        <p class="title">Register </p>
+                        <p class="message">Signup now and get full access to our app. </p>
+                        <div class= "all-fields">
+                            <div class="fields1">
+                            <div class="full-name">
+                                <input type="text" name="first_name" placeholder="First Name" required class="input"/>
+                                <input type="text" name="last_name" placeholder="Last Name" required class="input"/>
+                            </div>
+                            <input type="email" name="email" placeholder="Email" required class="input"/>
+                            <input type="password" name="password" placeholder="Password" required class="input"/>
+                            <input type="date" name="birth_date" required />
+                        </div>
+                        <div class="fields2">
+                            <input type="text" name="Institution" placeholder="Institution" required class="input"/>
+                        <input type="text" name="filiere" placeholder="Filiere" required class="input"/>
+                        <select name="gender" required>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                        <select name="user_type" required>
+                          <option value="student">Student</option>
+                          <option value="teacher">Teacher</option>
+                        </select>
+                        </div>
+                        </div>
+                        <button type="submit" class="submit">Register</button>
+                        <p class="signine">Already have an acount ? <a href="login.html">Signin</a> </p>
+                    </form>
+            </div>
+        </div>
+        <!-- start Features Section -->
+        
+        <footer>
+            <div class="footer_box">
+                <div class="logo_box">
+                    <h2>Exam<span>Uae</span></h2>
+                    <div class="box-element">
+                        <ul>
+                            <li>online Exams</li>
+                            <li>Email:hdhd2@gmail.com</li>
+                            <li>phone:+212621-...-25</li>
+                        </ul>
+                    </div>
+                    <div class="box-element">
+                        <ul>
+                            <li><a href="#">Github</a>
+                                <i class="fa-brands fa-github"></i>
+                            </li>
+                            <li><a href="#">Linkedin</a>
+                                <i class="fa-brands fa-linkedin"></i>
+                            </li>
+                            <li><a href="#">Facebook</a>
+                                <i class="fa-brands fa-facebook"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box-element">
+                        <ul>
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="">FEATURES</a></li>
+                            <li><a href="#">ABOUT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!--end Footer-->
+        <script>
+            const bx =document.querySelector('.bx-icon');
+            const bx_icon = document.querySelector('.bx-icon i');
+            const dropdownMenu = document.querySelector('.dropdown_menu');
+            bx.onclick = function(){
+                dropdownMenu.classList.toggle("open");
+                const isOpen = dropdownMenu.classList.contains('open');
+
+                bx_icon.classList = isOpen
+                    ? 'fa-solid fa-xmark'
+                    : 'fa-solid fa-bars'
+            } 
+        </script>
+</body>
+</html>

@@ -1,1 +1,151 @@
 <!-- Login Page HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ############################## link css icon ############################### -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ############################## link all.Js  ############################### -->
+
+    <title>Exam Uae</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <!-- Navigation -->
+        <nav>
+            <label class="logo">Exam<span>Uae</span></label>
+            <ul class="nav-left">
+                <li><a href="index.html#home">HOME</a></li>
+                <li><a href="index.html#features">FEATURES</a></li>
+                <li><a href="index.html#about">ABOUT</a></li>
+                <li>
+                    <a href="#">LANGUAGE</a>
+                    <ul class="long">
+                        <li>
+                            <a href="#"><span>AR</span><img src="images/Arabic.jpeg" alt="Arabic Flag"></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>FR</span><img src="images/Francia.jpeg" alt="French Flag"></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>EN</span><img src="images/English.jpeg" alt="English Flag"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="buttons">
+                <a href="login.html" class="signin">Sign In</a>
+                <a href="Register.html" class="get-started">Get Started</a>
+            </div>
+            <div class="bx bx-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="dropdown_menu ">
+                <li><a href="index.html#home">HOME</a></li>
+                <li><a href="index.html#features">FEATURES</a></li>
+                <li><a href="index.html#about">ABOUT</a></li>
+                <div class="botton">
+                    <a href="login.html" class="signin">Sign In</a>
+                    <a href="Register.html" class="get-started">Get Started</a>
+                </div>
+            </div>
+            
+        </nav>
+        <!-- navigation end-->
+        <!-- Main Section -->
+        <div class="container_login">
+            <div class="order_login">
+                <div class="photo_login">
+                    <img src="images/download (6).gif" alt="Students using online exam login">
+                </div>
+                <div class="box-text">
+                    <h3>WELCOME BACK!</h3>
+                    <p>
+                        Log in to access your personalized dashbooard 
+                    </p>
+                    <form action="#">
+                        <div class="email">
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="password">
+                            <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+                        </div>
+                        <div class="check">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" id="id" name="name" class="hidden" />
+                                <span>Rememder me</span>
+                            </label>
+                            <a href="#">Forgot password?</a>
+                            
+                        </div>
+                        <div class="button_login">
+                        <button type="submit">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Sign in
+                        </button>
+                        </div>
+                        <div class="text">
+                            <h4>Don't hove an account?</h4>
+                            <a href="Register.html">Register now</a>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- stsrt Features Section -->
+        
+        <footer>
+            <div class="footer_box">
+                <div class="logo_box">
+                    <h2>Exam<span>Uae</span></h2>
+                    <div class="box-element">
+                        <ul>
+                            <li>online Exams</li>
+                            <li>Email:hdhd2@gmail.com</li>
+                            <li>phone:+212621-...-25</li>
+                        </ul>
+                    </div>
+                    <div class="box-element">
+                        <ul>
+                            <li>Github
+                                <i></i>
+                            </li>
+                            <li>Linkedin
+                                <i></i>
+                            </li>
+                            <li>Facebook
+                                <i></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box-element">
+                        <ul>
+                            <li><a href="#">HOME</a></li>
+                            <li><a href="#">FEATURES</a></li>
+                            <li><a href="#">ABOUT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <script>
+            const bx =document.querySelector('.bx-icon');
+            const bx_icon = document.querySelector('.bx-icon i');
+            const dropdownMenu = document.querySelector('.dropdown_menu');
+            bx.onclick = function(){
+                dropdownMenu.classList.toggle("open");
+                const isOpen = dropdownMenu.classList.contains('open');
+
+                bx_icon.classList = isOpen
+                    ? 'fa-solid fa-xmark'
+                    : 'fa-solid fa-bars'
+            } 
+        </script>
+</body>
+</html>
