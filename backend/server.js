@@ -1,5 +1,6 @@
 // Express server setup
 import express, { Router } from 'express';
+import cors from 'cors';
 // load .env!
 import './config/dotenv.js';
 // connect to MySQL!
@@ -10,16 +11,36 @@ initDatabase();
 // setup routes register + login
 import authRoutes from './routes/authRoutes.js';
 
+// setup routes for create exam + add questions with update & delete
+import examRoutes from './routes/examRoutes.js';
+import questionRoutes from './routes/questionRoutes.js';
+import studentExamRoutes from './routes/studentExamRoutes.js';
+// setup routes for teacher dashboard
+import getTeacherDashboard from './routes/teacherRoutes.js';
+import { getTeacherProfile, updateTeacherProfile } from './controllers/teacherController.js';
+
+
+
+
+
 const app = express();
+
+// CORS setup
+app.use(cors({
+  origin: ['http://127.0.0.1:5500', 'http://localhost:5500'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
 // Parse JSON
 app.use(express.json());
 
 app.use('/api/auth', authRoutes)
-
-app.get('/', (req,res) => {
-    res.send(` landing page working ...`)
-});
+app.use('/api/exams', examRoutes);
+app.use('/api/questions', questionRoutes);
+app.use('/api/student', studentExamRoutes);
+app.use('/api/teacher', getTeacherDashboard, getTeacherProfile, updateTeacherProfile);
 
 
 const PORT = process.env.PORT || 5000;
