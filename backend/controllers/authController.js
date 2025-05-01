@@ -42,7 +42,7 @@ export const RegisterUser = async (req, res) => {
         return res.status(400).json({ message: 'Invalid date of birth' });
         }
 
-        // Valid values for sexe
+        // Valid values for gender
         const genderLower = gender.toLowerCase();
         if (!['male', 'female'].includes(genderLower)) {
         return res.status(400).json({ message: 'Gender must be "male" or "female"' });
@@ -105,7 +105,7 @@ export const LoginUser = async (req, res) => {
         if (!isMatch) {
         return res.status(401).json({ message: 'Invalid password' });
         }
-        // create token JWT (the f**cking authentication i hate by arata-12 if maintainece my code make it better!)
+        // create token JWT (the f**cking authentication i hate by arata-12 if you maintainece my code make it better!)
         const token = jwt.sign(
             {
                 id: user.id,
