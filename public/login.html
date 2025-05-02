@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font nunito for website -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- ############################## link css icon ############################### -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- ############################## link all.Js  ############################### -->
-
     <title>Exam Uae</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+    <div id="flash-message" class="hidden flash"></div>
         <!-- Navigation -->
         <nav>
             <label class="logo">Exam<span>Uae</span></label>
@@ -58,14 +60,14 @@
         <div class="container_login">
             <div class="order_login">
                 <div class="photo_login">
-                    <img src="images/download (6).gif" alt="Students using online exam login">
+                    <img src="images/login.gif" alt="Students using online exam login">
                 </div>
                 <div class="box-text">
                     <h3>WELCOME BACK!</h3>
                     <p>
                         Log in to access your personalized dashbooard 
                     </p>
-                    <form action="#">
+                    <form id="loginForm">
                         <div class="email">
                             <input type="email" id="email" name="email" required placeholder="Enter your email">
                         </div>
@@ -134,6 +136,7 @@
             </div>
 
         </footer>
+        <!--start Footer-->
         <script>
             const bx =document.querySelector('.bx-icon');
             const bx_icon = document.querySelector('.bx-icon i');
@@ -146,6 +149,10 @@
                     ? 'fa-solid fa-xmark'
                     : 'fa-solid fa-bars'
             } 
+        </script>
+        <script type="module">
+            import { handleLogin } from './js/auth.js';
+            handleLogin('loginForm');
         </script>
 </body>
 </html>
