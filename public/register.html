@@ -4,15 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font nunito for website -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
     <!-- ############################## link css icon ############################### -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- ############################## link all.Js  ############################### -->
 
     <title>Register</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/style.css">
+
 </head>
 <body>
+    <div id="flash-message" class="hidden flash"></div>
         <!-- Navigation -->
         <nav>
             <label class="logo">Exam<span>Uae</span></label>
@@ -58,7 +63,7 @@
         <div class="container_register">
             <div class="order_register">
                 <div class="photo_register">
-                    <img src="images/download (7).gif" alt="Students using online exam register">
+                    <img src="images/register.gif" alt="Students using online exam register">
                 </div>
                     <form id="registerForm">
                         <p class="title">Register </p>
@@ -129,18 +134,22 @@
 
         </footer>
         <!--end Footer-->
-        <script>
-            const bx =document.querySelector('.bx-icon');
-            const bx_icon = document.querySelector('.bx-icon i');
-            const dropdownMenu = document.querySelector('.dropdown_menu');
-            bx.onclick = function(){
-                dropdownMenu.classList.toggle("open");
-                const isOpen = dropdownMenu.classList.contains('open');
+<script>
+    const bx =document.querySelector('.bx-icon');
+    const bx_icon = document.querySelector('.bx-icon i');
+    const dropdownMenu = document.querySelector('.dropdown_menu');
+    bx.onclick = function(){
+        dropdownMenu.classList.toggle("open");
+        const isOpen = dropdownMenu.classList.contains('open');
 
-                bx_icon.classList = isOpen
-                    ? 'fa-solid fa-xmark'
-                    : 'fa-solid fa-bars'
-            } 
-        </script>
+        bx_icon.classList = isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars'
+    } 
+</script>
+<script type="module">
+import { handleRegister } from './js/auth.js';
+handleRegister('registerForm');
+</script>
 </body>
 </html>
