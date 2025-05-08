@@ -87,3 +87,127 @@ export const updateTeacherProfile = async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to update profile" });
   }
 };
+// teacher exams list
+export const getTeacherExams = async (req, res) => {
+  try {
+    const teacherId = req.user.id;
+
+    const [exams] = await db.promise().query(
+      `SELECT id, title,CASE WHEN is_active THEN 'Active' ELSE 'Inactive' END AS status , target_audience FROM exams WHERE teacher_id = ? ORDER BY created_at DESC`,
+      [teacherId]
+    );
+
+    res.json({ success: true, exams });
+  } catch (err) {
+    console.error("Fetch Exams Error:", err);
+    res.status(500).json({ success: false, message: "Failed to load exams." });
+  }
+};
+
+// Get students by exam
+export const getExamStudents = async (req, res) => {
+  const teacherId = req.user.id;
+
+  const query = (sql, params) => {
+    return new Promise((resolve, reject) => {
+      db.query(sql, params, (err, results) => {
+        if (err) return reject(err);
+        resolve(results);
+      });
+    });
+  };
+
+  try {
+    const exams = await query(
+      `SELECT e.id, e.title FROM EXAMS e WHERE e.teacher_id = ?`,
+      [teacherId]
+    );
+
+    const examData = [];
+
+    for (const exam of exams) {
+      const students = await query(
+        `
+        SELECT 
+          u.first_name, u.last_name,
+          se.created_at AS assigned_date,
+          r.status
+        FROM STUDENT_EXAMS se
+        JOIN USERS u ON u.id = se.student_id
+        LEFT JOIN RESULTS r ON r.student_exam_id = se.id
+        WHERE se.exam_id = ?
+        `,
+        [exam.id]
+      );
+
+      const formattedStudents = students.map(s => ({
+        name: `${s.first_name} ${s.last_name}`,
+        status: s.status || 'in_progress',
+        date: s.assigned_date
+          ? new Date(s.assigned_date).toLocaleDateString()
+          : '—'
+      }));
+
+      examData.push({
+        id: exam.id,
+        title: exam.title,
+        students: formattedStudents
+      });
+    }
+
+    res.json({ success: true, exams: examData });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
+// GET teacher exam results
+export const getTeacherResults = async (req, res) => {
+  try {
+    const teacherId = req.user.id;
+
+    // Fetch all exams created by this teacher
+    const [exams] = await db.promise().query(`
+      SELECT id AS exam_id, title AS exam_title
+      FROM EXAMS
+      WHERE teacher_id = ?
+      ORDER BY created_at DESC
+    `, [teacherId]);
+
+    const resultData = [];
+
+    for (const exam of exams) {
+      // Fetch student results for each exam
+      const [students] = await db.promise().query(`
+        SELECT 
+          CONCAT(U.first_name, ' ', U.last_name) AS full_name,
+          R.total_score,
+          R.status,
+          R.submission_time
+        FROM STUDENT_EXAMS SE
+        JOIN USERS U ON SE.student_id = U.id
+        LEFT JOIN RESULTS R ON R.student_exam_id = SE.id
+        WHERE SE.exam_id = ?
+      `, [exam.exam_id]);
+
+      const totalStudents = students.length;
+      const averageScore = students.reduce((acc, s) => acc + (s.total_score || 0), 0) / (totalStudents || 1);
+
+      resultData.push({
+        exam_id: exam.exam_id,
+        exam_title: exam.exam_title,
+        total_students: totalStudents,
+        average_score: averageScore.toFixed(2),
+        students
+      });
+    }
+
+    res.json({ success: true, data: resultData });
+  } catch (err) {
+    console.error("Results fetch error:", err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+};
+

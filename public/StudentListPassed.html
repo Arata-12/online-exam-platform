@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student List | ExamUae</title>
+    <!-- font for website -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styleDashboardTeacher.css">
+</head>
+<body>
+    <div id="flash-message" class="flash hidden"></div>
+       <!--START Top Header -->
+<header class="dashboard-header">
+    <div class="logo">
+      <h2>Exam <span>Uae</span></h2>
+    </div>
+    <div class="header-right">
+      <div class="notification" id="notification">
+        <i class="fas fa-bell"></i>
+      </div>
+  
+      <div class="user-menu">
+        <img src="images/useravatar.jpg" alt="User Avatar" class="avatar" id="userDropdownToggle">
+        <ul class="dropdown" id="userDropdown">
+          <li>
+             <i class="fa-solid fa-user"></i>
+             <a href="profile.html">Profile</a>
+          </li>
+          <li>
+             <i class="fa-solid fa-right-from-bracket"></i>
+             <a href="index.html" id="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+   <!-- END TOP HEADER  -->
+       <!-- START sidebar -->
+   <aside class="sidebar">
+    <ul class="sidebar-menu">
+      <li><a href="teacher-dashboard.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+      <li><a href="myExamsTeacher.html"><i class="fas fa-file-alt"></i><span>My Exams</span></a></li>
+      <li><a href="CreateExamTeacher.html"><i class="fa-solid fa-plus"></i><span>Create New Exam</span></a></li>
+      <li><a href="StudentListPassed.html"><i class="fas fa-users"></i><span>Students</span></a></li>
+      <li><a href="resultsTeacher.html"><i class="fas fa-chart-bar"></i><span>Results</span></a></li>
+    </ul>
+  </aside>
+ <!-- END sidebar -->
+    <!-- START main content exams-->
+    <div class="dashboard-main">
+    <!-- Top Banner -->
+    <div class="exam-banner">
+      <div class="img-banner"><img src="images/students-list.gif" alt="Exams"></div>
+      <div class="banner-text">
+        <h1>Students</h1>
+      </div>
+      <div></div>
+    </div>
+    </div>
+    
+  <div id="flash-message" class="flash hidden"></div>
+  <script src="js/studentListTeacher.js"></script>
+</body>
+</html>

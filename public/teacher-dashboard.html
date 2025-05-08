@@ -1,1 +1,128 @@
 <!-- Teacher Dashboard HTML -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- font for website -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styleDashboardTeacher.css">
+ </head>
+ <body>
+   <!-- flash messages -->
+   <div id="flash-message" class="flash hidden"></div>
+   <!--START Top Header -->
+<header class="dashboard-header">
+   <div class="logo">
+     <h2>Exam <span>Uae</span></h2>
+   </div>
+   <div class="header-right">
+     <div class="notification" id="notification">
+       <i class="fas fa-bell"></i>
+     </div>
+ 
+     <div class="user-menu">
+       <img src="images/useravatar.jpg" alt="User Avatar" class="avatar" id="userDropdownToggle">
+       <ul class="dropdown" id="userDropdown">
+         <li>
+            <i class="fa-solid fa-user"></i>
+            <a href="profile.html">Profile</a>
+         </li>
+         <li>
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <a href="index.html" id="logout">Logout</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </header>
+  <!-- END TOP HEADER  -->
+   <!-- START sidebar -->
+   <aside class="sidebar">
+    <ul class="sidebar-menu">
+      <li><a href="teacher-dashboard.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+      <li><a href="myExamsTeacher.html"><i class="fas fa-file-alt"></i><span>My Exams</span></a></li>
+      <li><a href="CreateExamTeacher.html"><i class="fa-solid fa-plus"></i><span>Create New Exam</span></a></li>
+      <li><a href="StudentListPassed.html"><i class="fas fa-users"></i><span>Students</span></a></li>
+      <li><a href="resultsTeacher.html"><i class="fas fa-chart-bar"></i><span>Results</span></a></li>
+    </ul>
+    </aside>    
+   <!-- END sidebar -->
+
+    <!-- START main content -->
+    <main class="dashboard-main">
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <div class="welcome-banner">
+          <img src="images/welcome.jpg" alt="Welcome" />
+          <div class="welcome-text">
+            <h1>WELCOME</h1>
+            <p id="teacher-name"></p>
+          </div>
+          <div></div>
+        </div>
+      </section>
+    
+      <!-- Stats Section -->
+      <section class="stats-cards">
+        <div class="card">
+          <h3>TOTAL EXAMS CREATED</h3>
+          <div class="card-content">
+            <span class="stat-number" id="total-exams">0</span>
+            <img src="images/exams.jpg" alt="Exam Icon" />
+          </div>
+        </div>
+        <div class="card">
+          <h3>STUDENTS PARTICIPATED</h3>
+          <div class="card-content">
+            <span class="stat-number" id="total-students">0</span>
+            <img src="images/students.jpg" alt="Students Icon" />
+          </div>
+        </div>
+      </section>
+    
+      <!-- Recent Exams Table -->
+      <section class="table-section">
+        <h2>RECENT EXAMS</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Exam Title</th>
+              <th>Date Created</th>
+              <th>Students</th>
+              <th>Status</th>
+              <th>View Details</th>
+            </tr>
+          </thead>
+          <tbody id="recent-exams-table">
+          </tbody>
+        </table>
+      </section>
+    
+      <!-- Recent Student Activity -->
+      <section class="table-section">
+        <h2>RECENT STUDENT ACTIVITY</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Exam Taken</th>
+              <th>Score</th>
+              <th>Date Taken</th>
+            </tr>
+          </thead>
+          <tbody id="recent-activity-table">
+          </tbody>
+        </table>
+      </section>
+    </main>
+    
+    <!-- END main content -->
+
+
+   <script src="js/dashboard.js"></script>
+ </body>
+ </html>

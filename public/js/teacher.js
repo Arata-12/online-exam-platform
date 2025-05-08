@@ -1,1 +1,0 @@
-// Teacher dashboard JS logic
