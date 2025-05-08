@@ -1,1 +1,121 @@
-<!-- Student Dashboard HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ############################## link font family ############################### -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="images/student-icon.png" type="image/svg+xml">
+    <link rel="stylesheet" href="css/student-dashboard.css">
+    <title>SUDENT | DASHBOARD</title>
+</head>
+<body>
+    <div id="flash-message" class="flash hidden"></div>
+    <!--START Top Header -->
+    <header class="dashboard-header">
+        <div class="logo">
+            <h2>Exam <span>Uae</span></h2>
+        </div>
+
+        <div class="header-right">
+            <div class="notification">
+                <i class="fas fa-bell"></i>
+            </div>
+        <div class="user-menu">
+            <img src="images/useravatar.jpg" alt="User Avatar" class="avatar" id="userDropdownToggle">
+            <ul class="dropdown" id="userDropdown">
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    <a href="profilestudent.html">Profile</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <a href="login.html" id="logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </header>
+    <!-- END TOP HEADER  -->
+    <!-- start MY group  -->
+    <section class="my-group-box">
+        <div class="photo-my-group">
+            <img src="images/Employer and employee (1).gif" alt="">
+        </div>
+        <div class="group">
+            <h2 class="group-main-title">DASHBOARD</h2>
+        </div>
+        <div></div>
+    </section>
+    
+    <!-- end MY group  -->
+     <!--start link exam -->
+     <section>
+        <div class="link-exam">
+            <form >
+                <h3>Entre Exam access link </h3>
+                <input type="text" required placeholder="ASCTGFDR654" id="exam-code" />
+                <button class="but" id="link-exam-btn">link exam</button>
+            </form>
+        </div>
+     </section>
+     <!--end link exam -->
+
+    <!--start list Exams  -->
+    <section class="list-exams">
+        <div class="test-table">
+            <!-- Header -->
+            <div class="test-row test-header">
+                <div>Name</div>
+                <div>Percentage</div>
+                <div>Score</div>
+                <div>Duration</div>
+                <div>Action</div>
+            </div>
+            <!-- First Test -->
+            <div class="test-row">
+                <div>Test 1</div>
+                <div>0%</div>
+                <div>0/2</div>
+                <div>00:00:28</div>
+                <div><button class="btn danger">Results</button></div>
+            </div>
+            <!-- Second Test -->
+            <div class="test-row">
+                <div>Test 2</div>
+                <div>
+                    <span>100%</span>
+                </div>
+                <div>2/2</div>
+                <div>00:00:09</div>
+                <div><button class="btn danger">Results</button></div>
+            </div>
+            <div class="test-row">
+                <div>Test 2</div>
+                <div>
+                    <span>100%</span>
+                </div>
+                <div>2/2</div>
+                <div>00:00:09</div>
+                <div><button class="btn danger">Results</button></div>
+            </div>
+            <div class="test-row">
+                <div>Test 2</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div><button class="btn danger">Start</button></div>
+            </div>
+     
+        </div>
+    </section>
+    <!--End list Exams  -->
+
+    <!-- js -->
+    <script src="js/studentLogicPage.js"></script>
+ 
+</body>
+</html>
