@@ -1,7 +1,6 @@
 // Exam logic
-import { insertExam ,updateExam, deleteExam} from '../models/Exam.js';
+import { insertExam ,updateExam, deleteExam, getExamById} from '../models/Exam.js';
 import { nanoid } from 'nanoid'; // To generate a unique access code
-
 export const createExam = async (req, res) => {
   try {
     const { title, description, target_audience } = req.body;
@@ -41,7 +40,27 @@ export const createExam = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+// --------------------------------------------------------
+// get info of exam
+export const fetchExamById = async (req, res) => {
+  const examId = req.params.examId;
 
+  try {
+    const exam = await getExamById(examId);
+
+    if (!exam) {
+      return res.status(404).json({ message: 'Exam not found' });
+    }
+
+    res.json(exam);
+  } catch (err) {
+    console.error("Error fetching exam:", err);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
+// --------------------------------------------------------
 export const updateExamById = async (req, res) => {
   try {
     const { examId } = req.params;
@@ -57,13 +76,12 @@ export const updateExamById = async (req, res) => {
       return res.status(404).json({ message: 'Exam not found' });
     }
 
-    res.status(200).json({ message: '✅ Exam updated successfully' });
+    res.status(200).json({ message: 'Exam updated successfully' });
   } catch (err) {
     console.error('Update Exam Error:', err);
     res.status(500).json({ message: 'Server error' });
   }
 };
-
 export const deleteExamById = async (req, res) => {
   try {
     const { examId } = req.params;
@@ -74,7 +92,7 @@ export const deleteExamById = async (req, res) => {
       return res.status(404).json({ message: 'Exam not found' });
     }
 
-    res.status(200).json({ message: '✅ Exam deleted successfully' });
+    res.status(200).json({ message: 'Exam deleted successfully' });
   } catch (err) {
     console.error('Delete Exam Error:', err);
     res.status(500).json({ message: 'Server error' });
