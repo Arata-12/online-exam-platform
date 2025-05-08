@@ -14,6 +14,23 @@ export const insertExam = (exam) => {
     });
   });
 };
+// added get exam info
+export const getExamById = (examId) => {
+  return new Promise((resolve, reject) => {
+    const sql = `
+      SELECT id, title, description, target_audience, access_link, teacher_id
+      FROM exams
+      WHERE id = ?
+    `;
+    db.query(sql, [examId], (err, results) => {
+      if (err) return reject(err);
+      if (results.length === 0) return resolve(null);
+      resolve(results[0]);
+    });
+  });
+};
+
+
 export const updateExam = (examId, updatedData) => {
   return new Promise((resolve, reject) => {
     const { title, description, target_audience } = updatedData;
