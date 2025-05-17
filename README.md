@@ -38,6 +38,6 @@ Vanilla JS & modern| CSS3 | HTML5
 
 2. **Setup**
    ```bash
-   https://github.com/Arata-12/online-exam-platform.git
+   git clone https://github.com/Arata-12/online-exam-platform.git
    cd online-exam-platform
    npm install
