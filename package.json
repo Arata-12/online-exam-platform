@@ -21,6 +21,7 @@
     "mysql2": "^3.14.0",
     "nanoid": "^5.1.5",
     "nodemon": "^3.1.9",
+    "online-exam-platform": "file:",
     "path-to-regexp": "^8.2.0"
   }
 }
