@@ -35,9 +35,9 @@ Vanilla JS & modern| CSS3 | HTML5
    - Node.js v16+
    - MySql
    - Git
-1.1 **configure .env db**
-    - make sure adding the db name as platform_exam and keep port as 3000
-2. **Setup**
+2. **configure .env db**
+   - make sure adding the db name as platform_exam and keep port as 3000
+3. **Setup**
    ```bash
    git clone https://github.com/Arata-12/online-exam-platform.git
    cd online-exam-platform
